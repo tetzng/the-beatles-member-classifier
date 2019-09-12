@@ -13,7 +13,7 @@ import eval
 app = Flask(__name__)
 app.config['DEBUG'] = True
 # 投稿画像の保存先
-UPLOAD_FOLDER = './temp/images/default'
+UPLOAD_FOLDER = './temp'
 
 # ルーティング。/にアクセス時
 @app.route('/')
