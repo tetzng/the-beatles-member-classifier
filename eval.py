@@ -10,7 +10,7 @@ import random
 import main
 
 # OpenCVのデフォルトの顔の分類器のpath
-cascade_path = './opencv/data/haarcascades/haarcascade_frontalface_default.xml'
+cascade_path = '/opencv/data/haarcascades/haarcascade_frontalface_default.xml'
 faceCascade = cv2.CascadeClassifier(cascade_path)
 
 # 識別ラベルと各ラベル番号に対応する名前
