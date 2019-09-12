@@ -13,7 +13,7 @@ import eval
 app = Flask(__name__)
 app.config['DEBUG'] = True
 # 投稿画像の保存先
-UPLOAD_FOLDER = '/tmp'
+UPLOAD_FOLDER = './tmp'
 
 # ルーティング。/にアクセス時
 @app.route('/')
@@ -30,7 +30,7 @@ def post():
       img_path = os.path.join(UPLOAD_FOLDER, secure_filename(f.filename))
       f.save(img_path)
       # eval.pyへアップロードされた画像を渡す
-      result = eval.evaluation(img_path, '/model.ckpt')
+      result = eval.evaluation(img_path, './model.ckpt')
     else:
       result = []
     return render_template('index.html', result=result)

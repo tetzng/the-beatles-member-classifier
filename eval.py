@@ -10,7 +10,7 @@ import random
 import main
 
 # OpenCVのデフォルトの顔の分類器のpath
-cascade_path = '/opencv/data/haarcascades/haarcascade_frontalface_default.xml'
+cascade_path = './opencv/data/haarcascades/haarcascade_frontalface_default.xml'
 faceCascade = cv2.CascadeClassifier(cascade_path)
 
 # 識別ラベルと各ラベル番号に対応する名前
@@ -43,7 +43,7 @@ def evaluation(img_path, ckpt_path):
       # 顔部分を赤線で書こう
       cv2.rectangle(img, tuple(rect[0:2]), tuple(rect[0:2]+rect[2:4]), (0, 0, 255), thickness=2)
       # 顔部分を赤線で囲った画像の保存先
-      face_detect_img_path = '/tmp/' + random_str + 'a.jpg'
+      face_detect_img_path = './tmp/' + random_str + 'a.jpg'
       # 顔部分を赤線で囲った画像の保存
       cv2.imwrite(face_detect_img_path, img)
       x = rect[0]
@@ -51,9 +51,9 @@ def evaluation(img_path, ckpt_path):
       w = rect[2]
       h = rect[3]
       # 検出した顔を切り抜いた画像を保存
-      cv2.imwrite('/tmp/' + random_str + 'b.jpg', img[y:y+h, x:x+w])
+      cv2.imwrite('./tmp/' + random_str + 'b.jpg', img[y:y+h, x:x+w])
       # TensorFlowへ渡す切り抜いた顔画像
-      target_image_path = '/tmp/' + random_str + 'c.jpg'
+      target_image_path = './tmp/' + random_str + 'b.jpg'
   else:
     # 顔が見つからなければ処理終了
     print ('image:NoFace')
