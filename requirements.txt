@@ -14,7 +14,6 @@ tblib==1.4.0
 tensorboard==1.14.0
 tensorflow-estimator==1.14.0
 tf-estimator-nightly==1.14.0.dev2019060501
-tf-nightly==1.15.0.dev20190821
 unicodecsv==0.14.1
 uritemplate==3.0.0
 urllib3==1.24.2
