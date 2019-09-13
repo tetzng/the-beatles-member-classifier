@@ -7,7 +7,7 @@ The Beatlesのメンバーを判別出来る画像分類AIです。
 精度は90％ほど。
 
 ## Demo
-[![Image from Gyazo](https://i.gyazo.com/5bb606dd3fd652c2a9c972b0865484fa.gif)](https://gyazo.com/5bb606dd3fd652c2a9c972b0865484fa)
+[![Image from Gyazo](https://i.gyazo.com/367861d8150dec710317deff5e803d83.gif)](https://gyazo.com/367861d8150dec710317deff5e803d83)
 
 ## Author
 [tetzng](https://github.com/tetzng)
