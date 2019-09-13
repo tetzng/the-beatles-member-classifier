@@ -2,24 +2,25 @@
 {% block content %}
   <!-- Form
   ================================================== -->
-<div class="form">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <p style="margin-left:15px;">
-          AIが顔写真からThe Beatlesの顔を検出します。(ジョン・レノン、ポール・マッカトニー、ジョージ・ハリスン、リンゴ・スター)
-        </p>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-10 col-xl-10 mx-auto">
+      <div class="mx-auto">
+        <h2 class="mt-2 text-center text-dark">
+          AIが顔写真からThe Beatlesの顔を検出します。
+        </h2>
+      </div>
+      <div class="loading"></div>
+      <div class="content row">
         {% if result %}
           {% if result[0][0]['rate'] > 80 %}
             {% if result[0][0]['label'] == 0 %}
-              <h2 style="margin-left:10px;">「この顔は<span class="red">{{result[0][0]['name']}}</span>の確率<span class="red">{{result[0][0]['rate']}}</span>%です。」</h2>
+              <h2 class="text-dark mt-3 mx-auto">「この顔は<span class="red">{{result[0][0]['name']}}</span>の確率<span class="red">{{result[0][0]['rate']}}</span>%です。」</h2>
               <div class="col-md-7">
                 <img src={{result[1]}} class="detect_img">
               </div>
               <div class="col-md-5">
-                <p class="logo_container">
-                </p>
-                <p><img src={{result[2]}} class="cut_image"></p>
+                <p class="col mx-auto"><img src={{result[2]}} class="cut_image"></p>
                 <p class="detail_container">
                   <解析詳細><br>
                   {{result[0][0]['name']}}：{{result[0][0]['rate']}}%<br>
@@ -28,14 +29,12 @@
                 </p>
               </div>
             {% elif result[0][0]['label'] == 1 %}
-              <h2 style="margin-left:10px;">「<span class="red">{{result[0][0]['name']}}</span>の確率<span class="red">{{result[0][0]['rate']}}</span>%です。」</h2>
+              <h2 class="text-dark mt-3 mx-auto">「<span class="red">{{result[0][0]['name']}}</span>の確率<span class="red">{{result[0][0]['rate']}}</span>%です。」</h2>
               <div class="col-md-7">
                 <img src={{result[1]}} class="detect_img">
               </div>
               <div class="col-md-5">
-                <p class="logo_container">
-                </p>
-                <p><img src={{result[2]}} class="cut_image"></p>
+                <p class="col mx-auto"><img src={{result[2]}} class="cut_image"></p>
                 <p class="detail_container">
                   <解析詳細><br>
                   {{result[0][0]['name']}}：{{result[0][0]['rate']}}%<br>
@@ -44,13 +43,13 @@
                 </p>
               </div>
             {% elif result[0][0]['label'] == 2 %}
-              <h2 style="margin-left:10px;">「<span class="red">{{result[0][0]['name']}}</span>の確率<span class="red">{{result[0][0]['rate']}}</span>%です。」</h2>
+              <h2 class="text-dark mt-3 mx-auto>「<span class="red">{{result[0][0]['name']}}</span>の確率<span class="red">{{result[0][0]['rate']}}</span>%です。」</h2>
               <div class="col-md-7">
                 <img src={{result[1]}} class="detect_img">
               </div>
               <div class="col-md-5">
                 <div>
-                  <p><img src={{result[2]}} class="cut_image"></p>
+                  <p class="col mx-auto"><img src={{result[2]}} class="cut_image"></p>
                   <p class="detail_container">
                     <解析詳細><br>
                     {{result[0][0]['name']}}：{{result[0][0]['rate']}}%<br>
@@ -61,15 +60,13 @@
               </div>
             {% endif %}
           {% else %}
-            <h2 style="margin-left:10px;">「どうやら<span class="red">The Beatlesではなさそう</span>です。」</h2>
+            <h2 class="text-dark mt-3 mx-auto">「どうやら<span class="red">The Beatlesのメンバーではなさそう</span>です。」</h2>
             <div class="col-md-7">
               <img src={{result[1]}} class="detect_img">
             </div>
             <div class="col-md-5">
-              <p style="margin-top:70px;">
-                　　　Who I am?<br>
-                <img src={{result[2]}} class="cut_image"></p>
-              <p class="detail_container">
+              <p class="col mx-auto"><img src={{result[2]}} class="cut_image"></p>
+              <p class="col detail_container">
                 <解析詳細><br>
                 {{result[0][0]['name']}}:{{result[0][0]['rate']}}%<br>
                 {{result[0][1]['name']}}:{{result[0][1]['rate']}}%<br>
@@ -79,14 +76,24 @@
           {% endif %}
           <!-- <p>{{result}}</p> -->
         {% else %}
-          <div class="col-md-12">
-            <h3>顔写真をアップロードしてください！</h3>
+          <div class="col-md-8 mx-auto">
+            <img src="./static/images/the-beatles.jpg" class="img-fluid" alt="The Beatles">
+            <p class="text-center mt-1 text-dark">(ジョン・レノン、ポール・マッカトニー、ジョージ・ハリスン、リンゴ・スター)</p>
+          </div>
+          <div class="col-md-12 col-xl-10 text-center mx-auto">
+            <h3 class="h4 text-dark">顔写真をアップロードしてください！</h3>
           </div>
         {% endif %}
-        <div class="col-md-12" style="margin-top:10px; margin-bottom:20px;">
-          <form action="/post" method="post" class="form-inline" enctype = "multipart/form-data">
-            <input type = "file" name = "file" />
-            <button type="submit" class="btn btn-primary" style="margin-top:5px;">The Beatlesを検出開始！</button>
+        </div>
+        <div class="row">
+          <form action="/post" method="post" class="col-sm-12" enctype = "multipart/form-data">
+            <div class="custom-file mx-auto">
+              <input type="file" name = "file" class="custom-file-input" id="customFile">
+              <label class="custom-file-label mt-4" for="customFile">Choose file</label>
+            </div>
+            <div class="col-sm-12 mx-auto mt-5 mb-5">
+              <button type="submit" class="btn btn-primary btn-lg btn-block rounded-pill">The Beatlesを検出開始！</button>
+            </div>
           </form>
         </div>
       </div>
