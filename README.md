@@ -10,6 +10,11 @@ The Beatlesのメンバーを判別出来る画像分類AIです。
 ## Demo
 [![Image from Gyazo](https://i.gyazo.com/367861d8150dec710317deff5e803d83.gif)](https://gyazo.com/367861d8150dec710317deff5e803d83)
 
+## Usage
+    $ git clone https://github.com/tetzng/the-beatles-member-classifier.git
+    $ cd the-beatles-member-classifier
+    $ pip install -r requirements.txt
+
 ## Dependency
 言語: Python 3.7.4
 フレームワーク: Flask
@@ -17,3 +22,6 @@ The Beatlesのメンバーを判別出来る画像分類AIです。
 
 ## Author
 [tetzng](https://github.com/tetzng)
+
+## License
+MIT
